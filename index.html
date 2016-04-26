@@ -8,9 +8,13 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html>
 <head>
-<title>The Modernist</title>
+<title>Handloom</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="layout/styles/layout.css" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+<script src="js/contactusController.js"></script>
 </head>
 <body id="top">
 <!-- ################################################################################################ --> 
@@ -191,20 +195,20 @@ Licence URI: http://www.os-templates.com/template-terms
         Fax: xxxxx xxxxxxxxxx<br>
         Email: <a href="#">contact@mydomain.com</a></p>
     </div>
-    <div class="one_quarter">
+    <div class="one_quarter" ng-app="handloomContactus">
       <h2 class="title">Contact Us</h2>
-      <form method="post" action="#">
+      <form method="post" ng-controller="contactusController">
         <fieldset>
           <legend>Contact Form:</legend>
-          <label for="cf_name">Name:</label>
-          <input type="text" name="cf_name" id="cf_name" value="" placeholder="Full Name">
+          <label for="cf_name" >Name:{{$scope.cf_name}}</label>
+          <input type="text" ng-model="cf_name" id="cf_name" value="" placeholder="Full Name">
           <label for="cf_email">Email:</label>
-          <input type="text" name="cf_email" id="cf_email" value="" placeholder="Email Address">
+          <input type="text" ng-model="cf_email" id="cf_email" value="" placeholder="Email Address">
           <label for="cf_subject">Subject:</label>
-          <input type="text" name="cf_subject" id="cf_subject" value="" placeholder="Subject">
+          <input type="text" ng-model="cf_subject" id="cf_subject" value="" placeholder="Subject">
           <label for="cf_message">Message:</label>
-          <textarea name="cf_message" id="cf_message" cols="45" rows="10" placeholder="Message"></textarea>
-          <button type="submit" value="submit">Submit</button>
+          <textarea ng-model="cf_message" id="cf_message" cols="45" rows="10" placeholder="Message"></textarea>
+          <button type="button" ng-click="contactusRequest()">Submit</button>
         </fieldset>
       </form>
     </div>
